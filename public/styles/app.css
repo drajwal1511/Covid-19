@@ -33,7 +33,7 @@ input[type="button"]{
  input[type="button"]::-moz-focus-inner {
     border: 0;
  }
- .table td,.table th{     
+.table td,.table th{     
      padding-left: 10;
  }
 form button{
@@ -52,12 +52,17 @@ form button:focus{
 form button img{
     width: 32px;
 }
+.ccode{
+    display: none;
+}
 @media(max-width:767px){
-    table{
-        font-size: 0.9rem;
-        margin: auto auto;
-    }
     .jumbotron+.jumbotron{
         padding: 0;
+    }
+    .ccode{
+        display: inline;
+    }
+    .cname{
+        display: none;
     }
 }

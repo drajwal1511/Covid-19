@@ -52,7 +52,7 @@
                   <tr>
                     <td>
                       <form action="/covid" method="POST">
-                        <button name="country" value="<%= countries[i].Country %>" type="submit"><img src="<%= countries[i].imgflag %>"> <%= countries[i].Country %></button>  
+                        <button name="country" value="<%= countries[i].Country %>" type="submit"><img src="<%= countries[i].imgflag %>"><span class="cname"><%= countries[i].Country %></span><span class="ccode"><%= countries[i].CountryCode %></span></button>  
                       </form>
                     </td>
                     <td>
