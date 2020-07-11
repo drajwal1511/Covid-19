@@ -54,39 +54,47 @@
           </div>
         </div>
       </div>
-      <div class="jumbotron">
-        <div class="container">
-          <% if(!body[0].country){ %> 
-            <table>
-              <thead>
+      <% if(!body[0].country){ %>
+        <div class="jumbotron">
+          <div class="container">
+            <table class="table table-striped">
+              <thead class="thead-dark">
                 <th>Country</th>
                 <th>Confirmed</th>
                 <th>Recovered</th>
                 <th>Deaths</th>
               </thead>
               <tbody>
-                <% for(var i=0;i<summary.Countries.length;i++){ %> 
+                <% for(var i=0;i<countries.length;i++){ %> 
                   <tr>
                     <td>
-                      <%= summary.Countries[i].Country %> 
+                      <%= countries[i].Country %> 
                     </td>
                     <td>
-                      <%= summary.Countries[i].TotalConfirmed %> 
+                      <span class="confirmed">
+                        <%= countries[i].TotalConfirmed %>
+                      </span>
+                      +<%= countries[i].NewConfirmed %> 
                     </td>
                     <td>
-                      <%= summary.Countries[i].TotalRecovered %> 
+                      <span class="recovered">
+                        <%= countries[i].TotalRecovered %>
+                      </span>
+                      +<%= countries[i].NewRecovered %> 
                     </td>
                     <td>
-                      <%= summary.Countries[i].TotalDeaths %> 
+                      <span class="deaths"> 
+                        <%= countries[i].TotalDeaths %>
+                      </span>
+                      +<%= countries[i].NewDeaths %> 
                     </td>
                   </tr>
                 <% } %> 
               </tbody>
             </table>
-          <% } %> 
+          </div>
         </div>
-      </div>
-    
+      <% } %> 
     </section>
   </main>
 <%- include("partials/footer") %> 

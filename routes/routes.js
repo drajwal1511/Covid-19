@@ -1,6 +1,7 @@
 const express = require("express");
 const Router = express.Router();
 var http = require("https");
+const { count } = require("console");
 Router.get("/",function(req,res){
     res.render("landingpage");
 })
@@ -42,7 +43,12 @@ Router.get("/covid",function(req,res){
                     sres.on("end", function () {
                         var sbody = Buffer.concat(schunks);
                         psbody=JSON.parse(sbody);
-                        res.render("home",{img:imgsrc,body:JSON.parse(body),summary:psbody});
+                        countries=psbody.Countries;
+
+                        countries.sort(function(a,b){
+                            return (a.TotalConfirmed>b.TotalConfirmed)?-1 : (a.TotalConfirmed<b.TotalConfirmed)?1:0;
+                        });
+                        res.render("home",{img:imgsrc,body:JSON.parse(body),countries:countries});
                     });
                 });    
                 sreq.end();
