@@ -54,6 +54,38 @@
           </div>
         </div>
       </div>
+      <div class="jumbotron">
+        <div class="container">
+          <% if(!body[0].country){ %> 
+            <table>
+              <thead>
+                <th>Country</th>
+                <th>Confirmed</th>
+                <th>Recovered</th>
+                <th>Deaths</th>
+              </thead>
+              <tbody>
+                <% for(var i=0;i<summary.Countries.length;i++){ %> 
+                  <tr>
+                    <td>
+                      <%= summary.Countries[i].Country %> 
+                    </td>
+                    <td>
+                      <%= summary.Countries[i].TotalConfirmed %> 
+                    </td>
+                    <td>
+                      <%= summary.Countries[i].TotalRecovered %> 
+                    </td>
+                    <td>
+                      <%= summary.Countries[i].TotalDeaths %> 
+                    </td>
+                  </tr>
+                <% } %> 
+              </tbody>
+            </table>
+          <% } %> 
+        </div>
+      </div>
     
     </section>
   </main>

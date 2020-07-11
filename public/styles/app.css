@@ -24,3 +24,9 @@
 .container h2 img{
     width: 64px;
 }
+table{
+    width: 100%;
+}
+td{
+    width: 25%;
+}
