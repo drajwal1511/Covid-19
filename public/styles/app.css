@@ -1,0 +1,26 @@
+.jumbotron h2{
+    text-align: center;
+}
+.row{
+    margin-top: 50px;
+}
+.row .col-lg-3{
+    font-size:18px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.confirmed{
+    color: red;
+}
+.recovered{
+    color: green;
+}
+.critical{
+    color:orange;
+}
+.deaths{
+    color: black;
+}
+.container h2 img{
+    width: 64px;
+}
