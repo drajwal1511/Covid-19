@@ -4,7 +4,7 @@
 .row{
     margin-top: 50px;
 }
-.row .col-lg-3{
+.row .col-lg-4{
     font-size:18px;
     margin-bottom: 30px;
     text-align: center;
@@ -29,4 +29,21 @@ table{
 }
 td{
     width: 25%;
+}
+input[type="button"]{
+    outline:none;
+ }
+ input[type="button"]::-moz-focus-inner {
+    border: 0;
+ }
+form button{
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+form button:hover{
+    color: cadetblue;
+}
+form button:focus{
+    outline: none;
 }
