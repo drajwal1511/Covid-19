@@ -25,10 +25,16 @@ var sreq = http.request(ops, function (sres) {
         countries.sort(function(a,b){
             return (a.TotalConfirmed>b.TotalConfirmed)?-1 : (a.TotalConfirmed<b.TotalConfirmed)?1:0;
         });
+        countries.forEach(function(c,i){
+            c.imgflag= "https://www.countryflags.io/"+c.CountryCode+"/flat/64.png";
+        });
        
     });
 });    
 sreq.end();
+
+
+
 Router.get("/",function(req,res){
     res.render("landingpage");
 })
@@ -41,9 +47,9 @@ Router.post("/covid",function(req,res){
     var country = req.body.country.toString();
     countries.forEach(function(c,i){
         if(c.Country==country){
-            var imgsrc = "https://www.countryflags.io/"+c.CountryCode+"/flat/64.png";
-            res.render("home",{isglobal:false,img:imgsrc,country:c})
+            res.render("home",{isglobal:false,country:c})
         }
     })
+    res.send("Not Found");
 })
 module.exports = Router;

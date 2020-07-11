@@ -27,9 +27,6 @@
 table{
     width: 100%;
 }
-td{
-    width: 25%;
-}
 input[type="button"]{
     outline:none;
  }
@@ -46,4 +43,7 @@ form button:hover{
 }
 form button:focus{
     outline: none;
+}
+form button img{
+    width: 32px;
 }

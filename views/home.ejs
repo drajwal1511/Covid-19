@@ -53,7 +53,7 @@
                   <tr>
                     <td>
                       <form action="/covid" method="POST">
-                        <button name="country" value="<%= countries[i].Country %>" type="submit"><%= countries[i].Country %></button>  
+                        <button name="country" value="<%= countries[i].Country %>" type="submit"><img src="<%= countries[i].imgflag %>"> <%= countries[i].Country %></button>  
                       </form>
                     </td>
                     <td>
@@ -83,7 +83,7 @@
       <% }else{ %> 
         <div class="jumbotron">
           <div class="container">
-            <h2><img src="<%= img %>">
+            <h2><img src="<%= country.imgflag %>">
                 <%= country.Country %> 
             </h2>
             <div class="row">
