@@ -33,7 +33,12 @@ input[type="button"]{
  input[type="button"]::-moz-focus-inner {
     border: 0;
  }
+ .table td,.table th{     
+     padding-left: 10;
+ }
 form button{
+    margin: 0;
+    padding: 0;
     border: none;
     background-color: transparent;
     outline: none;
