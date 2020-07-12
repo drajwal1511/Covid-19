@@ -50,6 +50,5 @@ Router.post("/covid",function(req,res){
             res.render("home",{isglobal:false,country:c})
         }
     })
-    res.send("Not Found");
 })
 module.exports = Router;

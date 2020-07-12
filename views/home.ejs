@@ -10,22 +10,17 @@
         <li class="nav-item active">
           <a class="nav-link" href="/covid">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
       </ul>
-      <form method="POST" action="/covid" class="form-inline my-2 my-lg-0">
-        <input name="country" class="form-control mr-sm-2" type="search" placeholder="Search a Country" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
     </div>
   </div>
   </nav>
   <main>
     <section>
+      <div class="container">
+        <form class="search" action="/covid" method="POST">
+          <input name="country" class="form-control mr-sm-2" type="search" placeholder="Search a Country" aria-label="Search">
+        </form>
+      </div>
       <% if(isglobal){ %>
         <div class="jumbotron">
           <div class="container">
