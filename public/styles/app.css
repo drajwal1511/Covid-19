@@ -70,3 +70,14 @@ form button img{
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.ui-autocomplete{
+    background: linear-gradient(
+        to bottom,
+        #ffffff,
+        #ffffff 50%,
+        #e9ecef 50%,
+        #e9ecef
+      );
+      background-size: 100% 60px;
+    z-index: 2;
+}
