@@ -18,8 +18,14 @@
     <section>
       <div class="container">
         <form class="search" action="/covid" method="POST">
-          <input id="country" name="country" class="form-control mr-sm-2" type="search" placeholder="Search a Country" aria-label="Search">
+        <input <% if(!isglobal){ %> value="<%= country.Country %> "<% } %>  id="country" name="country" class="form-control mr-sm-2" type="search" placeholder="Search a Country" aria-label="Search">
         </form>
+        <% if(!isglobal){ %> 
+        <form class="form-group" method="POST" action="/covid/date">
+          <input autocomplete="off" name="date" class="form-control" placeholder="Pick A Date" type="text" id="datepicker">
+          <input type="hidden" name="country" value="<%= country.Country %> ">
+        </form>
+        <% } %> 
       </div>
       <% if(isglobal){ %>
         <div class="jumbotron">
@@ -83,9 +89,9 @@
                 <%= country.Country %> 
             </h2>
             <div class="row">
-              <div class="confirmed col-lg-4 col-md-4 col-sm-12"><span class="tp"><%= country.TotalConfirmed %></span>(+<%= country.NewConfirmed %>)<div><h4>Confirmed</h4></div> </div>
-              <div class="recovered col-lg-4 col-md-4 col-sm-12"><span class="rp"><%= country.TotalRecovered %></span>(+<%= country.NewRecovered %>)<div><h4>Recovered</h4></div></div>
-              <div class="deaths col-lg-4 col-md-4 col-sm-12"><span class="dp"><%= country.TotalDeaths %></span>(+<%= country.NewDeaths %>)<div><h4>Deaths</h4></div></div>
+            <div class="confirmed col-lg-4 col-md-4 col-sm-12"><span class="tp"><%= country.TotalConfirmed %></span><% if(!isdate){ %>(+<%= country.NewConfirmed %>)<% } %> <div><h4>Confirmed</h4></div> </div>
+            <div class="recovered col-lg-4 col-md-4 col-sm-12"><span class="rp"><%= country.TotalRecovered %></span><% if(!isdate){ %>(+<%= country.NewRecovered %>)<% } %> <div><h4>Recovered</h4></div></div>
+            <div class="deaths col-lg-4 col-md-4 col-sm-12"><span class="dp"><%= country.TotalDeaths %></span><% if(!isdate){ %>(+<%= country.NewDeaths %>)<% } %> <div><h4>Deaths</h4></div></div>
             </div>
             <!-- *********** -->
             <div class="row">

@@ -38,3 +38,8 @@ var options = {'width':"100%", 'height':300};
 var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 chart.draw(data, options);
 }
+
+
+$( function() {
+    $( "#datepicker" ).datepicker();
+});
