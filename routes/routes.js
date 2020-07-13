@@ -35,10 +35,10 @@ function callsummary(){
     sreq.end();   
 }
 Router.get("/",function(req,res){
-    callsummary();
     res.render("landingpage");
 })
 Router.get("/covid",function(req,res){
+    callsummary();
     var imgsrc = "https://images.vexels.com/media/users/3/140409/isolated/preview/bb6e7b0f2c4e29df1f8e628d41f47eb5-globe-round-icon-1-by-vexels.png";
     res.render("home",{isglobal:true,img:imgsrc,global:global,countries:countries});
     
