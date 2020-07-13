@@ -34,7 +34,6 @@ function callsummary(){
     });    
     sreq.end();   
 }
-
 Router.get("/",function(req,res){
     callsummary();
     res.render("landingpage");
@@ -55,6 +54,13 @@ Router.post("/covid",function(req,res){
 })
 Router.post("/covid/date",function(req,res){
     var country = req.body.country.slice(0,req.body.country.length-1);
+    var slug="";
+    countries.forEach(function(c){
+        if(c.Country==country){
+            slug=c.Slug;
+            console.log(country,slug);
+        }
+    })
     var datestr=req.body.date;
     var month = datestr.slice(0,2);
     var day = datestr.slice(3,5);
@@ -67,7 +73,7 @@ Router.post("/covid/date",function(req,res){
     var fromdate=new Date();
     fromdate=date;
     fromdate.setDate(date.getDate()-1);
-    var urls="/country/"+country+"?from="+String(fromdate.getFullYear())+"-"+("0"+String(fromdate.getMonth()+1)).slice(-2)+"-"+("0"+String(fromdate.getDate())).slice(-2)+"T00:00:00Z&to="+year+"-"+month+"-"+day+"T00:00:00Z";
+    var urls="/country/"+slug+"?from="+String(fromdate.getFullYear())+"-"+("0"+String(fromdate.getMonth()+1)).slice(-2)+"-"+("0"+String(fromdate.getDate())).slice(-2)+"T00:00:00Z&to="+year+"-"+month+"-"+day+"T00:00:00Z";
     console.log(urls);
         var cops = {
             "method": "GET",
@@ -87,6 +93,7 @@ Router.post("/covid/date",function(req,res){
                 pcbody=JSON.parse(cbody);  
                 var country = {
                     Country:pcbody[1].Country,
+                    Slug:slug,
                     TotalConfirmed:pcbody[1].Confirmed,
                     TotalDeaths:pcbody[1].Deaths,
                     TotalRecovered:pcbody[1].Recovered,
