@@ -29,7 +29,8 @@ function drawChart() {
 var data = google.visualization.arrayToDataTable([
     ['Task', 'Hours per Day'],
     ['Total Recovered', Number($(".rp").text())],
-    ['Total Deaths', Number($(".dp").text())]
+    ['Total Deaths', Number($(".dp").text())],
+    ["Mild/Critical",Number($(".tp").text())-(Number($(".dp").text())+Number($(".rp").text()) )]
 ]);
 // Optional; add a title and set the width and height of the chart
 var options = {'width':"100%", 'height':300};

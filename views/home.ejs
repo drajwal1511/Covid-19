@@ -28,7 +28,7 @@
                 WORLD
             </h2>
             <div class="row">
-              <div class="confirmed col-lg-4 col-md-4 col-sm-12"><%= global.TotalConfirmed %>(+<%= global.NewConfirmed %>)<div><h4>Confirmed</h4></div> </div>
+              <div class="confirmed col-lg-4 col-md-4 col-sm-12"><span class="tp"><%= global.TotalConfirmed %></span>(+<%= global.NewConfirmed %>)<div><h4>Confirmed</h4></div> </div>
               <div class="recovered col-lg-4 col-md-4 col-sm-12"><span class="rp"><%= global.TotalRecovered %></span>(+<%= global.NewRecovered %>)<div><h4>Recovered</h4></div></div>
               <div class="deaths col-lg-4 col-md-4 col-sm-12"><span class="dp"><%= global.TotalDeaths %></span>(+<%= global.NewDeaths %>)<div><h4>Deaths</h4></div></div>
             </div>
@@ -83,7 +83,7 @@
                 <%= country.Country %> 
             </h2>
             <div class="row">
-              <div class="confirmed col-lg-4 col-md-4 col-sm-12"><%= country.TotalConfirmed %>(+<%= country.NewConfirmed %>)<div><h4>Confirmed</h4></div> </div>
+              <div class="confirmed col-lg-4 col-md-4 col-sm-12"><span class="tp"><%= country.TotalConfirmed %></span>(+<%= country.NewConfirmed %>)<div><h4>Confirmed</h4></div> </div>
               <div class="recovered col-lg-4 col-md-4 col-sm-12"><span class="rp"><%= country.TotalRecovered %></span>(+<%= country.NewRecovered %>)<div><h4>Recovered</h4></div></div>
               <div class="deaths col-lg-4 col-md-4 col-sm-12"><span class="dp"><%= country.TotalDeaths %></span>(+<%= country.NewDeaths %>)<div><h4>Deaths</h4></div></div>
             </div>

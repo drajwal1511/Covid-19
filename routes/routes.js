@@ -35,6 +35,7 @@ function callsummary(){
     sreq.end();   
 }
 Router.get("/",function(req,res){
+    callsummary();
     res.render("landingpage");
 })
 Router.get("/covid",function(req,res){
