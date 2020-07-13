@@ -1,14 +1,14 @@
 $("#country").autocomplete({
     source: function(req,res){
         $.ajax({
-            url:"https://api.covid19api.com/countries",
+            url:"https://api.covid19api.com/summary",
             method:"GET",
             dataType:"json",
             req:{
                 name:req.term
             },
             success:function(xs){
-                xs=xs.filter(function(x){
+                xs=xs.Countries.filter(function(x){
                     return x.Country.toLowerCase().indexOf(req.term.toLowerCase())!=-1;
                 })
                 var fxs=[];
