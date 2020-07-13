@@ -17,13 +17,25 @@
   <main>
     <section>
       <div class="container">
+
         <form class="search" action="/covid" method="POST">
-        <input <% if(!isglobal){ %> value="<%= country.Country %> "<% } %>  id="country" name="country" class="form-control mr-sm-2" type="search" placeholder="Search a Country" aria-label="Search">
+          <div class="input-group">
+            <input <% if(!isglobal){ %> value="<%= country.Country %> "<% } %>  id="country" name="country" class="form-control" placeholder="Search a Country" aria-label="Search">
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2"><button type="submit"><i class="fa fa-paper-plane"></i></button></span>
+            </div> 
+          </div>
         </form>
+
         <% if(!isglobal){ %> 
         <form class="form-group" method="POST" action="/covid/date">
-          <input autocomplete="off" name="date" class="form-control" placeholder="Pick A Date" type="text" id="datepicker">
-          <input type="hidden" name="country" value="<%= country.Country %> ">
+          <div class="input-group">
+            <input autocomplete="off" name="date" class="form-control" placeholder="Pick A Date" type="text" id="datepicker">
+            <input type="hidden" name="country" value="<%= country.Country %> ">
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2"><button type="submit"><i class="fa fa-paper-plane"></i></button></span>
+            </div> 
+          </div>
         </form>
         <% } %> 
       </div>
