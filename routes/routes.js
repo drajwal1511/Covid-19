@@ -58,7 +58,6 @@ Router.post("/covid/date",function(req,res){
     countries.forEach(function(c){
         if(c.Country==country){
             slug=c.Slug;
-            console.log(country,slug);
         }
     })
     var datestr=req.body.date;
@@ -74,7 +73,6 @@ Router.post("/covid/date",function(req,res){
     fromdate=date;
     fromdate.setDate(date.getDate()-1);
     var urls="/country/"+slug+"?from="+String(fromdate.getFullYear())+"-"+("0"+String(fromdate.getMonth()+1)).slice(-2)+"-"+("0"+String(fromdate.getDate())).slice(-2)+"T00:00:00Z&to="+year+"-"+month+"-"+day+"T00:00:00Z";
-    console.log(urls);
         var cops = {
             "method": "GET",
             "hostname": "api.covid19api.com",
