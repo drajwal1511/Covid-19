@@ -45,40 +45,42 @@ $( function() {
 // for line graph
 var slugname = $("#slugname").text();
 var url="https://api.covid19api.com/total/country/"+slugname;
-$.ajax({
-    url:url,
-    method:"GET",
-    dataType:"json",
-    success:function(data){
-        var totaldata=[];
-            for(var i=0;i<data.length;i++){
-                var tempdata=[];
-                var datestr = data[i].Date;
-                var yearstr = datestr.slice(0,4);
-                var monthstr = datestr.slice(5,7);
-                var daystr = datestr.slice(8,10);
-                var datetopush = new Date(Number(yearstr),Number(monthstr),Number(daystr));
-                tempdata.push(datetopush);
-                tempdata.push(Number(data[i].Confirmed));
-                tempdata.push(Number(data[i].Deaths));
-                tempdata.push(Number(data[i].Recovered));
-                totaldata.push(tempdata);
+if(slugname){
+    $.ajax({
+        url:url,
+        method:"GET",
+        dataType:"json",
+        success:function(data){
+            var totaldata=[];
+                for(var i=0;i<data.length;i++){
+                    var tempdata=[];
+                    var datestr = data[i].Date;
+                    var yearstr = datestr.slice(0,4);
+                    var monthstr = datestr.slice(5,7);
+                    var daystr = datestr.slice(8,10);
+                    var datetopush = new Date(Number(yearstr),Number(monthstr),Number(daystr));
+                    tempdata.push(datetopush);
+                    tempdata.push(Number(data[i].Confirmed));
+                    tempdata.push(Number(data[i].Deaths));
+                    tempdata.push(Number(data[i].Recovered));
+                    totaldata.push(tempdata);
+                }
+            google.charts.load('current', {'packages':['line']});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('date', 'Date');
+                data.addColumn('number', 'Confirmed');
+                data.addColumn('number', 'Death');
+                data.addColumn('number', 'Recovered');
+                data.addRows(totaldata);
+                var options = {
+                width: "100%",
+                height: 300,
+                };
+                var chart = new google.charts.Line(document.getElementById('linechart_material'));
+                chart.draw(data, google.charts.Line.convertOptions(options));
             }
-        google.charts.load('current', {'packages':['line']});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-            var data = new google.visualization.DataTable();
-            data.addColumn('date', 'Date');
-            data.addColumn('number', 'Confirmed');
-            data.addColumn('number', 'Death');
-            data.addColumn('number', 'Recovered');
-            data.addRows(totaldata);
-            var options = {
-            width: "100%",
-            height: 300,
-            };
-            var chart = new google.charts.Line(document.getElementById('linechart_material'));
-            chart.draw(data, google.charts.Line.convertOptions(options));
         }
-    }
-})
+    })
+}
