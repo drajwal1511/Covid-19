@@ -81,3 +81,6 @@ form button img{
       background-size: 100% 60px;
     z-index: 2;
 }
+#linechart_material{
+    margin-top: 20px;
+}

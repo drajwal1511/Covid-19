@@ -75,7 +75,7 @@ $.ajax({
             data.addRows(totaldata);
             var options = {
             width: "100%",
-            height: "100%"
+            height: 300,
             };
             var chart = new google.charts.Line(document.getElementById('linechart_material'));
             chart.draw(data, google.charts.Line.convertOptions(options));
