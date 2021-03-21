@@ -10,8 +10,8 @@ AIM
 Website - https://c-19-app.herokuapp.com/covid
 
 TechStack
-=>HTML
-=>CSS
-=>JS
-=>NODEJS
-=>EXPRESS
+1. HTML
+2. CSS
+3. JS
+4. NODEJS
+5. EXPRESS
