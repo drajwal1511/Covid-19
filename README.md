@@ -8,3 +8,10 @@ AIM
 3. Learn autocomplete feature in the search box using ajax
 
 Website - https://c-19-app.herokuapp.com/covid
+
+TechStack
+=>HTML
+=>CSS
+=>JS
+=>NODEJS
+=>EXPRESS
